@@ -26,12 +26,15 @@ export async function POST(request: NextRequest) {
     const saveUser = await newUser.save();
     await sendEmail({ email, emailType: "VERIFY", userId: saveUser._id });
 
-    return NextResponse.json({
-      message: "User Register Successfully",
-      status: 201,
-      User: saveUser,
-      success: true,
-    });
+    return NextResponse.json(
+      {
+        message: "User Register Successfully",
+        status: 201,
+        User: saveUser,
+        success: true,
+      },
+      { status: 201 }
+    );
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
