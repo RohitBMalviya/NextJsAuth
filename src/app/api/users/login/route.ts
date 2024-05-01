@@ -31,7 +31,6 @@ export async function POST(request: NextRequest) {
     const options = {
       httpOnly: true,
       secure: true,
-      expires:new Date(0)
     };
     const response = NextResponse.json(
       {
