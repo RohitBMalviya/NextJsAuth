@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
     return NextResponse.json({
       message: "User Found Successfully",
-      data: user,
+      user,
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
